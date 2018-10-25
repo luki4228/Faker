@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTOGenerator\DTOGenerator.csproj">
+      <Project>{2b2e1873-cbff-44d6-a1eb-5ef61a00f90d}</Project>
+      <Name>DTOGenerator</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
