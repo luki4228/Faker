@@ -20,5 +20,10 @@ namespace DTOGenerator.Generators
         {
             return (byte)random.Next(0, 255);
         }
+
+        public Type GetGeneratorType()
+        {
+            return typeof(byte);
+        }
     }
 }

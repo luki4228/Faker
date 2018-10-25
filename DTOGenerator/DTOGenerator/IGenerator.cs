@@ -10,5 +10,6 @@ namespace DTOGenerator
     public interface IGenerator
     {
         object Generate();
+        Type GetGeneratorType();
     }
 }

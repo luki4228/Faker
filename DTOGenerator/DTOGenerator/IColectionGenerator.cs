@@ -9,5 +9,6 @@ namespace DTOGenerator
     public interface ICollectionGenerator
     {
         object Generate(Type t);
+        Type GetGeneratorType();
     }
 }

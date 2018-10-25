@@ -20,5 +20,10 @@ namespace DTOGenerator.Generators
         {
             return random.Next(int.MinValue, int.MaxValue) + random.Next(int.MinValue, int.MaxValue);
         }
+
+        public Type GetGeneratorType()
+        {
+            return typeof(long);
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace ConsoleUsageExample
         static void Main(string[] args)
         {
 
-            Faker faker = new Faker();
+            Faker faker = new Faker("C://Users/Test-PC/source/repos/Faker/Plugins/bin/Debug");
             Simple c = faker.Create<Simple>();
             Console.WriteLine(c.a);
             Console.WriteLine(c.h);

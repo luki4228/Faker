@@ -20,5 +20,10 @@ namespace DTOGenerator.Generators
         {
             return random.NextDouble()*double.MaxValue;
         }
+
+        public Type GetGeneratorType()
+        {
+            return typeof(double);
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DTOGenerator
 {
-    class DTOChecker
+    public static class DTOChecker
     {
         public static bool IsDto(Type t)
         {

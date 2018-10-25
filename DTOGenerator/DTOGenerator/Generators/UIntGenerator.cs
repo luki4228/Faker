@@ -21,5 +21,10 @@ namespace DTOGenerator.Generators
             uint res = (uint)random.Next(int.MaxValue) + (uint)random.Next(int.MaxValue);
             return res;
         }
+
+        public Type GetGeneratorType()
+        {
+            return typeof(uint);
+        }
     }
 }

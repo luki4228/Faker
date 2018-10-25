@@ -17,5 +17,10 @@ namespace DTOGenerator.Generators
 
             return res;
         }
+
+        public Type GetGeneratorType()
+        {
+            return typeof(List<>);
+        }
     }
 }

@@ -26,5 +26,10 @@ namespace DTOGenerator.Generators
       
             return new string(stringChars);
         }
+
+        public Type GetGeneratorType()
+        {
+            return typeof(string);
+        }
     }
 }

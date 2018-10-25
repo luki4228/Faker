@@ -20,5 +20,10 @@ namespace DTOGenerator.Generators
         {
             return Convert.ToChar(random.Next(65, 122));
         }
+
+        public Type GetGeneratorType()
+        {
+            return typeof(char);
+        }
     }
 }

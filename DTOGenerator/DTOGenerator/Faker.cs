@@ -11,7 +11,13 @@ namespace DTOGenerator
     {
         public Faker()
         {
-            ParameterGenerator.faker = this;
+
+        }
+
+        public Faker(string dirPath)
+        {
+            ParameterGenerator.Faker = this;
+            ParameterGenerator.DirPath = dirPath;
         }
 
         public object CreateByConstructor(ConstructorInfo constructor)
