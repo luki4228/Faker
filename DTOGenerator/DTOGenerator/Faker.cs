@@ -9,7 +9,10 @@ namespace DTOGenerator
 {
     public class Faker
     {
-        public Faker() { }
+        public Faker()
+        {
+            ParameterGenerator.Faker = this;
+        }
 
         public object CreateByConstructor(ConstructorInfo constructor)
         {
@@ -18,7 +21,8 @@ namespace DTOGenerator
             int i = 0;
             foreach (ParameterInfo parameterInfo in parameters)
             {
-                tmpParams[i] = ParameterGenerator.Generate(parameterInfo.GetType(), this);
+                tmpParams[i] = ParameterGenerator.Generate(parameterInfo.ParameterType);
+                i++;
             }
             return constructor.Invoke(tmpParams);
         }
@@ -30,11 +34,11 @@ namespace DTOGenerator
             List<PropertyInfo> settableProperties = PropertiesInfoProcessor.GetSettableProperties(ClassInfo.GetClassPropertiesInfo(t));
             foreach (FieldInfo field in fields)
             {
-                field.SetValue(res, ParameterGenerator.Generate(field.FieldType, this));
+                field.SetValue(res, ParameterGenerator.Generate(field.FieldType));
             }
             foreach (PropertyInfo property in settableProperties)
             {
-                property.SetValue(res, ParameterGenerator.Generate(property.PropertyType, this));
+                property.SetValue(res, ParameterGenerator.Generate(property.PropertyType));
             }
             return res;
         }
@@ -44,7 +48,7 @@ namespace DTOGenerator
             ParameterGenerator.AddToRecursionControlList(t);
             Object result;
             List<ConstructorInfo> constructors = ClassInfo.GetClassConstructorsInfo(t);
-            if (constructors.Count > 1)
+            if (constructors.Count > 0 && constructors[0].GetParameters().Length > 0)
             {
                 ConstructorInfo bestConstructor = ConstructorInfoProcessor.GetMaxParameterizedConstructor(constructors);
                 result = CreateByConstructor(bestConstructor);
