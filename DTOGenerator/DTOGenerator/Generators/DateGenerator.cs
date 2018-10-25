@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeneratorDTO.Generators
+namespace DTOGenerator.Generators
 {
     public class DateGenerator : IGenerator
     {
